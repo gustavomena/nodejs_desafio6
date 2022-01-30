@@ -6,7 +6,7 @@ const http = require('http')
   
 const getPokemones = async () => {
     try {
-        const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon-form?offset=0&limit=10');            
+        const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon-form?offset=0&limit=150');            
         return data.results;
     } catch (error) {
         console.log(error);
@@ -24,7 +24,7 @@ const getPokemonImg = async (nombre) => {
 
 
     let pokeData = [] 
-    getPokemones().then((data) => {
+getPokemones().then((data) => {
         data.forEach(e => {
             getPokemonImg(e.name).then((r) => {
                 let pokeInfo = new Object()
